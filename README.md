@@ -36,12 +36,12 @@ write config/deploy.rb
 
     set :smartlogging_file, 'log/smartlogging.log'
 
-FIXME
-upgrade from <= v0.1.1 to v0.1.2
-set :format option
-old version was :dlogging
-v0.1.2
-set to :pretty or none set(default)
+FIXME<br/>
+upgrade from <= v0.1.1 to v0.1.2<br/>
+set :format option<br/>
+old version was :dlogging<br/>
+v0.1.2<br/>
+set to :pretty or none set(default)<br/>
 :dlogging formatter was removed
 
 ## Development
