@@ -34,8 +34,15 @@ write Capfile
 
 write config/deploy.rb
 
-    set :format, :smartlogging
     set :smartlogging_file, 'log/smartlogging.log'
+
+FIXME<br/>
+upgrade from <= v0.1.1 to v0.1.2<br/>
+set :format option<br/>
+old version was :dlogging<br/>
+v0.1.2<br/>
+set to :pretty or none set(default)<br/>
+:dlogging formatter was removed
 
 ## Development
 

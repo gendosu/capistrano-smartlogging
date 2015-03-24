@@ -1,12 +1,10 @@
-require 'sshkit'
-require 'logger'
+require "capistrano/smartlogging"
 
-module Capistrano
-  module Smartlogging
-    class Formatter < SSHKit::Formatter::Pretty
-
+module SSHKit
+  module Formatter
+    class Abstract
       def initialize(oio)
-        logger = CustomLogger.new(Smartlogging.configuration.log_file)
+        logger = CustomLogger.new(Capistrano::Smartlogging.configuration.log_file)
         logger.oio = oio
 
         logger.info("==================================================================")
@@ -14,17 +12,11 @@ module Capistrano
         logger.info("* start date: #{DateTime.now}")
         logger.info("==================================================================")
 
-        super(logger)
+        @original_output = logger
       end
-
-      alias_method :origin_write, :write if method_defined?(:write)
-      def write(obj)
-        origin_write(obj)
-      end
-      alias :<< :write
     end
 
-    class CustomLogger < Logger
+    class CustomLogger < ::Logger
       attr_accessor :oio
 
       def <<(msg)

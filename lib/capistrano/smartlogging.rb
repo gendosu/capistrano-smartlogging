@@ -1,8 +1,7 @@
 require "capistrano/smartlogging/configuration"
-require "capistrano/smartlogging/formatter"
 require "capistrano/smartlogging/version"
 
-require "sshkit/formatter/smartlogging"
+require "sshkit/formatter/abstract"
 
 module Capistrano
   module Smartlogging
